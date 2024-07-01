@@ -78,7 +78,7 @@ $ cd rocketseat-nlw-01-server-alt2/server
 # Run Spring Boot Application
 $ .\\mvnw spring-boot:run
 
-# running on port 8080
+# running on port 3333
 ```
 
 ## 📝 License
