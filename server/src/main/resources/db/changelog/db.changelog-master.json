@@ -1,0 +1,333 @@
+{
+    "databaseChangeLog": [
+        {
+            "changeSet": {
+                "id": "1",
+                "author": "LeoPanichi",
+                "changes": [
+                    {
+                        "createTable": {
+                            "tableName": "item",
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "id",
+                                        "type": "bigint",
+                                        "autoIncrement": true,
+                                        "constraints": {
+                                            "primaryKey": true,
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "createTable": {
+                            "tableName": "point",
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "id",
+                                        "type": "bigint",
+                                        "autoIncrement": true,
+                                        "constraints": {
+                                            "primaryKey": true,
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "name",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "email",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "whatsapp",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "latitude",
+                                        "type": "double precision",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "longitude",
+                                        "type": "double precision",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "city",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "uf",
+                                        "type": "text",
+                                        "constraints": {
+                                            "nullable": false
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "changeSet": {
+                "id": 2,
+                "author": "LeoPanichi",
+                "changes": [
+                    {
+                        "createTable": {
+                            "tableName": "point2item",
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "point_id",
+                                        "type": "bigint",
+                                        "autoIncrement": true,
+                                        "constraints": {
+                                            "primaryKey": true,
+                                            "nullable": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "item_id",
+                                        "type": "bigint",
+                                        "autoIncrement": true,
+                                        "constraints": {
+                                            "primaryKey": true,
+                                            "nullable": false
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "addForeignKeyConstraint": {
+                            "baseColumnNames": "point_id",
+                            "baseTableCatalogName": "mydatabase",
+                            "baseTableName": "point2item",
+                            "baseTableSchemaName": "public",
+                            "constraintName": "fk_point2item_point",
+                            "deferrable": true,
+                            "initiallyDeferred": true,
+                            "onDelete": "CASCADE",
+                            "onUpdate": "RESTRICT",
+                            "referencedColumnNames": "id",
+                            "referencedTableCatalogName": "mydatabase",
+                            "referencedTableName": "point",
+                            "referencedTableSchemaName": "public",
+                            "validate": true
+                        }
+                    },
+                    {
+                        "addForeignKeyConstraint": {
+                            "baseColumnNames": "item_id",
+                            "baseTableCatalogName": "mydatabase",
+                            "baseTableName": "point2item",
+                            "baseTableSchemaName": "public",
+                            "constraintName": "fk_point2item_item",
+                            "deferrable": true,
+                            "initiallyDeferred": true,
+                            "onDelete": "CASCADE",
+                            "onUpdate": "RESTRICT",
+                            "referencedColumnNames": "id",
+                            "referencedTableCatalogName": "mydatabase",
+                            "referencedTableName": "item",
+                            "referencedTableSchemaName": "public",
+                            "validate": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "changeSet": {
+                "id": "3",
+                "author": "LeoPanichi",
+                "changes": [
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "baterias.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Baterias"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    },
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "eletronicos.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Eletrônicos"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    },
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "lampadas.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Lâmpadas"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    },
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "oleo.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Óleo"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    },
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "organicos.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Orgânicos"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    },
+                    {
+                        "insert": {
+                            "columns": [
+                                {
+                                    "column": {
+                                        "name": "image",
+                                        "value": "papeis-papelao.svg"
+                                    }
+                                },
+                                {
+                                    "column": {
+                                        "name": "title",
+                                        "value": "Papéis e Papelão"
+                                    }
+                                }
+                            ],
+                            "tableName": "item"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
